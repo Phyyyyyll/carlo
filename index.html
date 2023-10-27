@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Sorting</title>
+</head>
+<body>
+    <h1>Number Sorting</h1>
+
+    <p>Enter a list of numbers separated by commas:</p>
+    <input type="text" id="inputNumbers">
+    <button onclick="sortNumbers()">Sort</button>
+
+    <p>Sorted Numbers:</p>
+    <p id="sortedNumbers"></p>
+
+    <script>
+        function sortNumbers() {
+            // Get the input numbers as a comma-separated string
+            const inputNumbers = document.getElementById('inputNumbers').value;
+
+            // Split the string into an array of numbers
+            const numbersArray = inputNumbers.split(',').map(Number);
+
+            // Check if the input is valid (contains at least one number)
+            if (numbersArray.length === 0 || isNaN(numbersArray[0])) {
+                document.getElementById('sortedNumbers').textContent = "Please enter a valid list of numbers.";
+                return;
+            }
+
+            // Sort the numbers
+            numbersArray.sort((a, b) => a - b);
+
+            // Display the sorted numbers
+            document.getElementById('sortedNumbers').textContent = numbersArray.join(', ');
+        }
+    </script>
+</body>
+</html>
